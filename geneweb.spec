@@ -7,6 +7,7 @@ Summary:	Genealogy software with a Web interface
 Summary(de):	eine genealogische Software mit einem Web-Interface
 Summary(fr):	un logiciel de généalogie doté d'une interface Web
 Summary(nl):	een genealogisch programma met een www-interface
+Summary(pl):	Oprogramowanie do genealogii z interfejsem WWW
 Summary(se):	ett genealogi program med ett webbinterface
 Name:		geneweb
 Version:	4.09
@@ -20,7 +21,14 @@ URL:		http://cristal.inria.fr/~ddr/GeneWeb/
 BuildRequires:	ocaml
 BuildRequires:	ocaml-camlp4
 PreReq:		rc-scripts
+Requires(pre):	/usr/bin/getgid
+Requires(pre):	/bin/id
+Requires(pre):	/usr/sbin/groupadd
+Requires(pre):	/usr/sbin/useradd
 Requires(post,preun):	/sbin/chkconfig
+Requires(post):	fileutils
+Requires(postun):	/usr/sbin/groupdel
+Requires(postun):	/usr/sbin/userdel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,6 +48,10 @@ GeneWeb is een genealogisch programma met een www-interface, dat kan
 gebruikt worden op computers met of zonder permanente verbinding met
 het Internet.
 
+%description -l pl
+GeneWeb to oprogramowanie do genealogii z interfejsem WWW. Mo¿na go
+u¿ywaæ offline albo jako us³uga sieciowa.
+
 %description -l se
 GeneWeb är ett genealogi program med ett webbinterface. Det kan
 användas nedkopplad eller som en webbtjänst.
@@ -53,7 +65,7 @@ användas nedkopplad eller som en webbtjänst.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/var/{log,lib/%{name}},%{_sysconfdir}/{%{name},rc.d/init.d,logrotate.d}} \
+install -d $RPM_BUILD_ROOT{/var/{log,lib/%{name}},%{_sysconfdir}/%{name},/etc/{rc.d/init.d,logrotate.d}} \
 	$RPM_BUILD_ROOT%{_datadir}/%{name}/setup/lang
 
 %{__make} install \

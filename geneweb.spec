@@ -144,7 +144,7 @@ fi
 %defattr(644,root,root,755)
 %{_docdir}/%{name}-%{version}
 %dir %{_sysconfdir}/%{name}
-%attr(640,geneweb,geneweb) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/*
+%attr(644,geneweb,geneweb) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/*
 %{_datadir}/%{name}%{_sysconfdir}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/logrotate.d/%{name}
 %attr(755,root,root) %{_bindir}/*

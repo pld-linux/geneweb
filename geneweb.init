@@ -21,6 +21,7 @@ case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/geneweb ]; then
 		msg_starting geneweb
+		cd /var/lib/geneweb
 		daemon gwd -log /var/log/gwd.log -daemon -setup_link -bd /var/lib/geneweb -hd /usr/share/geneweb/lang
 		daemon gwsetup -daemon -gd /usr/share/geneweb/ 2>> /var/log/gwsetup.log
 		RETVAL=$?

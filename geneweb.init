@@ -1,9 +1,9 @@
 #!/bin/sh
-# chkconfig: 345 99 01
+# chkconfig:	345 99 01
 #
-# gwd:       Starts the genealogy Server
+# geneweb:	Starts the genealogy Server
 #
-# Version:      @(#) /etc/rc.d/init.d/gwd 1.0
+# Version:	@(#) /etc/rc.d/init.d/gwd 1.0
 #
 # description: Starts and stops the genealogy Server at boot time and shutdown.
 #
@@ -15,39 +15,41 @@ if [ -f /etc/rc.d/init.d/functions ]; then
 	. /etc/rc.d/init.d/functions
 fi
 
+RETVAL=0
 # See how we were called.
 case "$1" in
-	start)
-		if [ ! -f /var/lock/subsys/geneweb ]; then
-			msg_starting geneweb
-			daemon gwd -log /var/log/gwd.log -daemon -setup_link -bd /var/lib/geneweb -hd /usr/share/geneweb/lang
-			daemon gwsetup -daemon -gd /usr/share/geneweb/ 2>> /var/log/gwsetup.log
-			RETVAL=$?
-			[ $RETVAL -eq 0 ] && touch /var/lock/subsys/geneweb
-		else
-			msg_already_running geneweb
-		fi
-		;;
-	stop)
-		if [ -f /var/lock/subsys/geneweb ]; then
-			msg_stopping geneweb
-			killproc gwd
-			killproc gwsetup
-			rm -f /var/lock/subsys/geneweb >/dev/null 2>&1
-		else
-			msg_not_running geneweb
-		fi
-		;;
-	status)
-		status gwd
-		status gwsetup
-		;;
-	restart|reload)
-		$0 stop
-		$0 start
-		;;
-	*)
-		msg_usage "$0 {start|stop|restart|reload|status}"
-		exit 1
+  start)
+	if [ ! -f /var/lock/subsys/geneweb ]; then
+		msg_starting geneweb
+		daemon gwd -log /var/log/gwd.log -daemon -setup_link -bd /var/lib/geneweb -hd /usr/share/geneweb/lang
+		daemon gwsetup -daemon -gd /usr/share/geneweb/ 2>> /var/log/gwsetup.log
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/geneweb
+	else
+		msg_already_running geneweb
+	fi
+	;;
+  stop)
+	if [ -f /var/lock/subsys/geneweb ]; then
+		msg_stopping geneweb
+		killproc gwd
+		killproc gwsetup
+		rm -f /var/lock/subsys/geneweb >/dev/null 2>&1
+	else
+		msg_not_running geneweb
+	fi
+	;;
+  status)
+	status gwd
+	status gwsetup
+	;;
+  restart|reload)
+	$0 stop
+	$0 start
+	;;
+  *)
+	msg_usage "$0 {start|stop|restart|reload|status}"
+	exit 3
 esac
 
+exit $RETVAL

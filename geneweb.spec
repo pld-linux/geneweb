@@ -6,7 +6,7 @@
 Summary:	Genealogy software with a Web interface
 Summary(de):	eine genealogische Software mit einem Web-Interface
 Summary(fr):	un logiciel de généalogie doté d'une interface Web
-Summary(nl):	een genealogisch programma met een www-interface
+Summary(nl):	een genealogisch programma met een WWW-interface
 Summary(pl):	Oprogramowanie do genealogii z interfejsem WWW
 Summary(se):	ett genealogi program med ett webbinterface
 Name:		geneweb
@@ -47,7 +47,7 @@ GeneWeb est un logiciel de généalogie doté d'une interface Web. Il
 peut être utilisé non connecté au réseau ou comme un service Web.
 
 %description -l nl
-GeneWeb is een genealogisch programma met een www-interface, dat kan
+GeneWeb is een genealogisch programma met een WWW-interface, dat kan
 gebruikt worden op computers met of zonder permanente verbinding met
 het Internet.
 

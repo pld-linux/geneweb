@@ -20,7 +20,7 @@ Source1:	%{name}.init
 URL:		http://cristal.inria.fr/~ddr/GeneWeb/
 BuildRequires:	ocaml
 BuildRequires:	ocaml-camlp4
-BuildRequires:	rpmbuild(macros) >= 1.159
+BuildRequires:	rpmbuild(macros) >= 1.202
 PreReq:		rc-scripts
 Requires(pre):	/bin/id
 Requires(pre):	/usr/bin/getgid
@@ -97,25 +97,8 @@ touch $RPM_BUILD_ROOT/var/log/gwsetup.log
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-if [ -n "`/usr/bin/getgid geneweb`" ]; then
-	if [ "`/usr/bin/getgid geneweb`" != 129 ]; then
-		echo "Error: group geneweb doesn't have gid=129. Correct this before installing %{name}." 1>&2
-		exit 1
-	fi
-else
-	echo "Adding group geneweb GID=129."
-	/usr/sbin/groupadd -g 129 geneweb
-fi
-if [ -n "`/bin/id -u geneweb 2>/dev/null`" ]; then
-	if [ "`/bin/id -u geneweb`" != 129 ]; then
-		echo "Error: user geneweb doesn't have uid=129. Correct this before installing %{name}." 1>&2
-		exit 1
-	fi
-else
-	echo "Adding user %{name} UID=129."
-	/usr/sbin/useradd -u 129 -d /var/lib/geneweb -s /bin/false \
-		-c "Genealogy Software" -g geneweb geneweb 1>&2
-fi
+%groupadd -g 129 geneweb
+%useradd -u 129 -d /var/lib/geneweb -s /bin/false -c "Genealogy Software" -g geneweb geneweb
 
 %post
 /sbin/chkconfig --add %{name}

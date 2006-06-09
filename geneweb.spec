@@ -4,11 +4,11 @@
 # - fix init script to be more granular (each daemon should have own status)
 # - move gwd.arg to /etc
 Summary:	Genealogy software with a Web interface
-Summary(de):	eine genealogische Software mit einem Web-Interface
-Summary(fr):	un logiciel de généalogie doté d'une interface Web
-Summary(nl):	een genealogisch programma met een WWW-interface
+Summary(de):	Eine genealogische Software mit einem Web-Interface
+Summary(fr):	Un logiciel de généalogie doté d'une interface Web
+Summary(nl):	Een genealogisch programma met een WWW-interface
 Summary(pl):	Oprogramowanie do genealogii z interfejsem WWW
-Summary(se):	ett genealogi program med ett webbinterface
+Summary(sv):	Ett genealogi program med ett webbinterface
 Name:		geneweb
 Version:	4.09
 Release:	0.6
@@ -55,7 +55,7 @@ het Internet.
 GeneWeb to oprogramowanie do genealogii z interfejsem WWW. Mo¿na go
 u¿ywaæ offline albo jako us³uga sieciowa.
 
-%description -l se
+%description -l sv
 GeneWeb är ett genealogi program med ett webbinterface. Det kan
 användas nedkopplad eller som en webbtjänst.
 

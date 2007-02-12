@@ -4,11 +4,11 @@
 # - fix init script to be more granular (each daemon should have own status)
 # - move gwd.arg to /etc
 Summary:	Genealogy software with a Web interface
-Summary(de):	Eine genealogische Software mit einem Web-Interface
-Summary(fr):	Un logiciel de gÈnÈalogie dotÈ d'une interface Web
-Summary(nl):	Een genealogisch programma met een WWW-interface
-Summary(pl):	Oprogramowanie do genealogii z interfejsem WWW
-Summary(sv):	Ett genealogi program med ett webbinterface
+Summary(de.UTF-8):   Eine genealogische Software mit einem Web-Interface
+Summary(fr.UTF-8):   Un logiciel de g√©n√©alogie dot√© d'une interface Web
+Summary(nl.UTF-8):   Een genealogisch programma met een WWW-interface
+Summary(pl.UTF-8):   Oprogramowanie do genealogii z interfejsem WWW
+Summary(sv.UTF-8):   Ett genealogi program med ett webbinterface
 Name:		geneweb
 Version:	4.09
 Release:	0.6
@@ -38,26 +38,26 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 GeneWeb is a genealogy software with a Web interface. It can be used
 off-line or as a Web service.
 
-%description -l de
+%description -l de.UTF-8
 GeneWeb ist eine genealogische Software mit einem Web-Interface. Sie
 kann off-line oder als ein Web-Service genutzt werden.
 
-%description -l fr
-GeneWeb est un logiciel de gÈnÈalogie dotÈ d'une interface Web. Il
-peut Ítre utilisÈ non connectÈ au rÈseau ou comme un service Web.
+%description -l fr.UTF-8
+GeneWeb est un logiciel de g√©n√©alogie dot√© d'une interface Web. Il
+peut √™tre utilis√© non connect√© au r√©seau ou comme un service Web.
 
-%description -l nl
+%description -l nl.UTF-8
 GeneWeb is een genealogisch programma met een WWW-interface, dat kan
 gebruikt worden op computers met of zonder permanente verbinding met
 het Internet.
 
-%description -l pl
-GeneWeb to oprogramowanie do genealogii z interfejsem WWW. Moøna go
-uøywaÊ offline albo jako us≥uga sieciowa.
+%description -l pl.UTF-8
+GeneWeb to oprogramowanie do genealogii z interfejsem WWW. Mo≈ºna go
+u≈ºywaƒá offline albo jako us≈Çuga sieciowa.
 
-%description -l sv
-GeneWeb ‰r ett genealogi program med ett webbinterface. Det kan
-anv‰ndas nedkopplad eller som en webbtj‰nst.
+%description -l sv.UTF-8
+GeneWeb √§r ett genealogi program med ett webbinterface. Det kan
+anv√§ndas nedkopplad eller som en webbtj√§nst.
 
 %prep
 %setup -q
